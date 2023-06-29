@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pet Application</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="content">
+	<div th:include="@{fragments/navbar}"></div>
+		<div class="color-bg-primary text-white jumbotron">
+			<h1 class="aligncenter">
+				Welcome to <span th:text="${petAppName}"></span>
+				<img th:src="@{/icons/app-icon.png}" alt="Dog Icon" class="dog-icon">
+			</h1>
+		</div>
+		<div class="container">
+			<div class="card-body aligncenter">
+				<a th:href="@{/pet/pet-detail}" class="btn btn-success">View
+					Available Pets!</a>
+			</div>
+			<p  class="alignjustify">PawfectPal is the ultimate companion for pet lovers, offering
+				a vibrant community and a range of features for dog, cat, chipmunk,
+				and otter owners. Discover heartwarming stories, expert advice, and
+				the latest trends in pet care. Connect with fellow pet enthusiasts,
+				explore pet-friendly establishments, and participate in engaging
+				forums and contests. PawfectPal celebrates the extraordinary bond
+				between humans and their furry friends, providing a seamless and
+				rewarding experience for all pet owners. Join us today and embark on
+				a journey filled with adorable moments and valuable insights.</p>
+		</div>
+
+		<footer th:include="@{fragments/footer}"></footer>
+	</div>
+</body>
+</html>
