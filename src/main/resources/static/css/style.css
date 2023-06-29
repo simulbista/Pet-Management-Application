@@ -23,7 +23,8 @@ footer{
 /*removing curved border of jumbotron class of bootstrap4*/
 .jumbotron {
   border-radius: 0;
-  height: 20px;
+  height: 70px;
+  padding: 0;
 }
 
 .container-table{
@@ -56,4 +57,8 @@ td{
 
 .nav-link{
 	font-size: 1.4rem;
+}
+
+.menu-title{
+	padding: 20px 0px;
 }

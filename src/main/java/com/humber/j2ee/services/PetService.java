@@ -1,5 +1,6 @@
 package com.humber.j2ee.services;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,11 @@ public class PetService {
 	//get all pet records
 	public List<Pet> getAllPets(){
 		return petRepository.findAll();
+	}
+	
+	//get pet record by id
+	public Optional<Pet> getPetById(int id) {
+		return petRepository.findById(id);
 	}
 	
 	//update pet
