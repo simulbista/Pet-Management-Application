@@ -40,8 +40,8 @@ public class AdminController {
 	public String getIdToUpdate(Model model, @PathVariable int id) {
 		Optional<Pet> petToUpdate;
 		petToUpdate = petService.getPetById(id);
-		model.addAttribute("pet",petToUpdate);
-		return "updateform";
+		model.addAttribute("pet",petToUpdate.orElse(null));
+		return "petform";
 	}
 	
 	//when the admin hits update in the form
@@ -49,6 +49,21 @@ public class AdminController {
 	public String updatePet(@ModelAttribute("pet") Pet updatedPet) {
 	    petService.updatePet(updatedPet);
 	    return "redirect:/pet/admin/?success=Pet Updated Successfully!";
+	}
+	
+	//open the form to add pet
+	@GetMapping("/add")
+	public String addPet(Model model) {
+//		since im using the same form to add and update, the form for update asks for pet to be filled in by default, hence sending empty pet object
+		model.addAttribute("pet",new Pet());
+		return "petform";
+	}
+	
+	//to save the pet data that is submitted from the form 
+	@PostMapping("/add")
+	public String addPet(@ModelAttribute("pet") Pet pet, Model model) {
+	    petService.addPet(pet);
+	    return "redirect:/pet/admin/?success=Pet Added Successfully!";
 	}
 	
 }

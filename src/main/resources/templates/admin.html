@@ -19,12 +19,13 @@
 			<h3 class="menu-title" th:if="${pets.size}>0">
 				Available Pet<span th:if="${pets.size}>1">s</span>
 			</h3>
-			<hr th:if="${pets.size}>0">
-
+			<a th:href="@{/pet/admin/add}" class="btn btn-success btn-sm">Add Pet</a>
+			<!-- <hr th:if="${pets.size}>0"> -->
+			<hr>
 			<div class="alert alert-danger" role="alert" th:if="${pets.size}==0">Sorry!
 				There are no pets available at the moment! We will get back to you
 				soon.</div>
-				
+
 			<div class="alert alert-success" role="alert" th:if="${success}"
 				th:text="${success}"></div>
 			<table class="table" th:if="${pets.size}>0">
