@@ -1,2 +1,2 @@
-# Pet-Management-Application
-A JAVA Spring boot pet management application that allows the user to manage pet information (CRUD)  using Spring MVC, Tomcat server, H2 db, Spring JPA, Lombok, Thymeleaf (fragments, conditionals) and boostrap.
+# Pet-Management-Application (PawfectPal)
+A JAVA Spring boot pet management application that allows the user to manage pet information (CRUD)  using Spring MVC, Tomcat server, H2 db, Spring JPA, Lombok, Thymeleaf (form binding, fragments, conditionals) and boostrap.
