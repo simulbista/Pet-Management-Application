@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Pet Management Application</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -12,34 +12,44 @@
 <body>
 	<div class="content">
 		<div th:include="@{fragments/navbar}"></div>
-		<h2>Update Pet</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card mt-5">
+						<div class="card-body">
+							<h2 class="card-title">Update Pet</h2>
+							<hr>
+							<form th:action="@{/pet/admin/update}" th:object="${pet}"
+								method="POST">
+								<input type="hidden" th:field="*{id}">
 
-		<form th:action="@{/pet/admin/update}" th:object="${pet}" method="POST">
-			method="POST">
-			<input type="hidden" th:field="*{id}">
+								<div class="form-group">
+									<label for="name">Name:</label> <input type="text" id="name"
+										class="form-control" th:field="*{name}" required>
+								</div>
 
-			<div>
-				<label for="name">Name:</label> <input type="text" id="name"
-					th:field="*{name}" required>
+								<div class="form-group">
+									<label for="type">Type:</label> <select id="type"
+										class="form-control" th:field="*{type}" required>
+										<option value="DOG">Dog</option>
+										<option value="CAT">Cat</option>
+										<option value="OTTER">Otter</option>
+										<option value="CHIPMUNK">Chipmunk</option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label for="breed">Breed:</label> <input type="text" id="breed"
+										class="form-control" th:field="*{breed}" required>
+								</div>
+
+								<button type="submit" class="btn btn-info">Update</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-
-			<div>
-				<label for="type">Type:</label> <select id="type" th:field="*{type}"
-					required>
-					<option value="DOG">Dog</option>
-					<option value="CAT">Cat</option>
-					<option value="OTTER">Otter</option>
-					<option value="CHIPMUNK">Chipmunk</option>
-				</select>
-			</div>
-
-			<div>
-				<label for="breed">Breed:</label> <input type="text" id="breed"
-					th:field="*{breed}" required>
-			</div>
-
-			<button type="submit">Update</button>
-		</form>
+		</div>
 		<footer th:include="@{fragments/footer}"></footer>
 	</div>
 </body>

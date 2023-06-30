@@ -27,6 +27,7 @@ public class AdminController {
 	@Autowired
 	PetService petService;
 	
+	//admin page
 	@GetMapping("/")
 	public String petDetail(Model model, @RequestParam(required=false) String success) {
 		model.addAttribute("pets", petService.getAllPets());
@@ -34,6 +35,7 @@ public class AdminController {
 		return "admin";
 	}
 	
+	//get id to update when update button is clicked and get the respective pet detail and display in the form to be updated by the admin
 	@GetMapping("/updatebyid/{id}")
 	public String getIdToUpdate(Model model, @PathVariable int id) {
 		Optional<Pet> petToUpdate;
@@ -42,6 +44,7 @@ public class AdminController {
 		return "updateform";
 	}
 	
+	//when the admin hits update in the form
 	@PostMapping("/update")
 	public String updatePet(@ModelAttribute("pet") Pet updatedPet) {
 	    petService.updatePet(updatedPet);

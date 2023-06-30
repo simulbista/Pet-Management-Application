@@ -22,6 +22,7 @@ public class PetMVCController {
 	@Autowired
 	PetService petService;
 	
+//	display pet info in the home page for non admin users
 	@GetMapping("/")
 //	model is passing values to the html file where it is read by thymeleaf
 	public String home(Model model, @RequestParam(required=false) String success) {
@@ -31,13 +32,7 @@ public class PetMVCController {
 		return "home";
 	}
 	
-	@GetMapping("/admin")
-	public String petDetail(Model model) {
-		model.addAttribute("pets", petService.getAllPets());
-		return "admin";
-	}
-	
-	
+//  delete api endpoint for the user in the home page
 	@GetMapping("/delete/{id}")
 	public String deletePet(@PathVariable int id) {
 		petService.deletePetById(id);
